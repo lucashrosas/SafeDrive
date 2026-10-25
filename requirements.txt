@@ -1,0 +1,5 @@
+# Same versions IsaacDocs' CI deploys with
+mkdocs==1.6.1
+mkdocs-material==8.5.11
+mkdocs-git-revision-date-plugin==0.3.2
+mkdocs-git-revision-date-localized-plugin==1.6.1

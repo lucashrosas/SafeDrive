@@ -1,0 +1,16 @@
+# Overrides applied on top of IsaacDocs' own mkdocs.yml to produce a
+# self-contained static build (no analytics, no mike version switcher,
+# third-party scripts served locally instead of from CDNs).
+INHERIT: mkdocs.yml
+extra:
+  version: null
+  analytics: null
+extra_javascript:
+    - js/vendor/jquery.min.js
+    - js/vendor/tablesort.min.js
+    # Defining `mermaid` up front stops Material from fetching it from unpkg.
+    # If that fetch fails, Material's script pipeline breaks and search stops working.
+    - js/vendor/mermaid.min.js
+    - js/tablesort.number.min.js
+    - js/customJS.js
+    - js/jquery.mark.min.js
