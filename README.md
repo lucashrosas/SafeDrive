@@ -4,23 +4,27 @@ A prebuilt, self-contained static copy of the
 [Binding of Isaac Lua API docs](https://github.com/wofsauge/IsaacDocs)
 (<https://wofsauge.github.io/IsaacDocs/>).
 
-The ready-to-use site is in [`site/`](site/). It was built from IsaacDocs commit
+The ready-to-use site is in [`docs/`](docs/). It was built from IsaacDocs commit
 `e05b1fd` (2026-10-01).
 
 ## Using it
 
-**Recommended:** serve the folder with any static web server, so that search works:
+**GitHub Pages:** in the repository's **Settings → Pages**, choose **Deploy from a branch**,
+pick this branch and the `/docs` folder, and save. The site appears at the URL GitHub shows
+there after a minute or two. GitHub Pages on a private repository needs a paid GitHub plan.
+
+**Local server:** serve the folder with any static web server, so that search works:
 
 ```bash
-cd site
+cd docs
 python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-You can also upload `site/` as-is to GitHub Pages, Netlify, an S3 bucket, nginx, and so on.
+You can also upload `docs/` as-is to Netlify, an S3 bucket, nginx, and so on.
 It contains a `.nojekyll` file, and every link is relative, so it works from any sub-path.
 
-**Without a server:** open `site/index.html` directly in a browser. Pages, navigation,
+**Without a server:** open `docs/index.html` directly in a browser. Pages, navigation,
 diagrams and tables all work, but search does not: browsers block the request it makes
 to load the search index from a `file://` URL.
 
@@ -47,7 +51,7 @@ Requirements: Python 3, git and internet access.
 
 The script clones IsaacDocs (with full history, which the "last updated" dates need)
 into `.build/`. It then installs the same tool versions as upstream CI
-([`requirements.txt`](requirements.txt)) and writes the result to `site/`.
+([`requirements.txt`](requirements.txt)) and writes the result to `docs/`.
 
 The documentation content belongs to the IsaacDocs project and its contributors
 (© Wofsauge).

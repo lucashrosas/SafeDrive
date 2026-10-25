@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build a static copy of https://github.com/wofsauge/IsaacDocs into ./site
+# Build a static copy of https://github.com/wofsauge/IsaacDocs into ./docs
 #
 # Usage: ./build.sh [git-ref]   (defaults to the pinned commit below; pass "main" for latest)
 
@@ -31,8 +31,8 @@ cp "$DIR/mkdocs.static.yml" "$SRC/mkdocs.static.yml"
 
 # Snippet includes are resolved relative to the working directory
 cd "$SRC"
-rm -rf "$DIR/site"
-"$WORK/venv/bin/mkdocs" build -f mkdocs.static.yml -d "$DIR/site"
-touch "$DIR/site/.nojekyll"
+rm -rf "$DIR/docs"
+"$WORK/venv/bin/mkdocs" build -f mkdocs.static.yml -d "$DIR/docs"
+touch "$DIR/docs/.nojekyll"
 
-echo "Static site written to $DIR/site (built from IsaacDocs @ $(git rev-parse --short HEAD))"
+echo "Static site written to $DIR/docs (built from IsaacDocs @ $(git rev-parse --short HEAD))"
